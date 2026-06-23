@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://b77eol6xklydt"]
+
+[ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="1_p17t5"]
+
+[resource]
+script = ExtResource("1_p17t5")
+CharacterName = "Goblin"
+MaxHP = 50
+MaxMP = 0
+Defense = 3
+Speed = 8
+metadata/_custom_type_script = "uid://7hjt3bfh8dih"

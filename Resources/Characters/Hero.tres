@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://cf2uhlolsduu6"]
+
+[ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="1_2eys5"]
+
+[resource]
+script = ExtResource("1_2eys5")
+CharacterName = "Hero"
+Defense = 8
+metadata/_custom_type_script = "uid://7hjt3bfh8dih"

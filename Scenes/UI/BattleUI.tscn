@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c3mnew5jgf0pw"]
+
+[ext_resource type="Script" uid="uid://dkeif48a8qlef" path="res://Scripts/UI/BattleUI.cs" id="1_o21vf"]
+
+[node name="BattleUI" type="CanvasLayer" unique_id=971836381]
+script = ExtResource("1_o21vf")
+
+[node name="HeroInfo" type="VBoxContainer" parent="." unique_id=1321818714]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -61.0
+offset_right = 422.0
+offset_bottom = -7.0
+grow_vertical = 0
+
+[node name="HeroName" type="Label" parent="HeroInfo" unique_id=386826369]
+layout_mode = 2
+
+[node name="HeroHP" type="ProgressBar" parent="HeroInfo" unique_id=1776557634]
+layout_mode = 2
+
+[node name="EnemyInfo" type="VBoxContainer" parent="." unique_id=472389707]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -417.0
+offset_top = -54.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="EnemyName" type="Label" parent="EnemyInfo" unique_id=590282040]
+layout_mode = 2
+
+[node name="EnemyHP" type="ProgressBar" parent="EnemyInfo" unique_id=1888443343]
+layout_mode = 2
+
+[node name="BattleLog" type="Label" parent="." unique_id=1459914029]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.202
+anchor_right = 0.5
+anchor_bottom = 0.202
+offset_left = -20.0
+offset_top = 181.60399
+offset_right = 20.0
+offset_bottom = 204.60399
+grow_horizontal = 2
+
+[node name="ActionButtons" type="HBoxContainer" parent="." unique_id=1803696228]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -83.0
+offset_top = -72.0
+offset_right = 82.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AttackButton" type="Button" parent="ActionButtons" unique_id=2017317938]
+layout_mode = 2
+text = "Attack"
+
+[node name="HealButton" type="Button" parent="ActionButtons" unique_id=297744655]
+layout_mode = 2
+text = "Heal"

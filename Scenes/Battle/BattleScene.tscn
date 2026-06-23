@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dsutkgc2qd8h3"]
+
+[ext_resource type="PackedScene" uid="uid://6ovxc5jyhbf3" path="res://Scenes/Characters/HeroPrefab.tscn" id="1_k6flv"]
+[ext_resource type="PackedScene" uid="uid://otawaev41ojh" path="res://Scenes/Characters/GoblinPrefab.tscn" id="2_nutpp"]
+[ext_resource type="Script" uid="uid://dm83pv8a4yonr" path="res://Scripts/Core/BattleManager.cs" id="3_glr0r"]
+[ext_resource type="PackedScene" uid="uid://c3mnew5jgf0pw" path="res://Scenes/UI/BattleUI.tscn" id="4_nutpp"]
+
+[node name="BattleScene" type="Node2D" unique_id=1094403869]
+
+[node name="HeroPosition" type="Node2D" parent="." unique_id=1960281306]
+
+[node name="CharacterBody" parent="HeroPosition" unique_id=1398552183 instance=ExtResource("1_k6flv")]
+position = Vector2(184, 352)
+
+[node name="EnemyPosition" type="Node2D" parent="." unique_id=104668547]
+
+[node name="CharacterBody" parent="EnemyPosition" unique_id=2125619735 instance=ExtResource("2_nutpp")]
+position = Vector2(988, 353)
+
+[node name="BattleManager" type="Node" parent="." unique_id=1172047415 node_paths=PackedStringArray("Hero", "Enemy")]
+script = ExtResource("3_glr0r")
+Hero = NodePath("../HeroPosition/CharacterBody")
+Enemy = NodePath("../EnemyPosition/CharacterBody")
+
+[node name="BattleUI" parent="." unique_id=971836381 node_paths=PackedStringArray("BattleManager") instance=ExtResource("4_nutpp")]
+BattleManager = NodePath("../BattleManager")
