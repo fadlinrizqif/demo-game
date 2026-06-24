@@ -7,6 +7,8 @@ public partial class BattleManager : Node
 	[Export] public Character Hero { get; set; }
 	[Export] public Character Enemy { get; set; }
 
+	[Signal] public delegate void StateChangedEventHandler();
+
 	public enum BattleState
 	{
 		PlayerTurn,
@@ -24,6 +26,7 @@ public partial class BattleManager : Node
 		GD.Print($"{Hero.Data.CharacterName} HP: {Hero.CurrentHP} / {Hero.Data.MaxHP}");
 		GD.Print($"{Enemy.Data.CharacterName} HP: {Enemy.CurrentHP} / {Enemy.Data.MaxHP}");
 		GD.Print("== Waiting player input - Player Turn");
+		EmitSignal(SignalName.StateChanged);
 	}
 
 	public void PlayerAttack()
@@ -37,17 +40,20 @@ public partial class BattleManager : Node
 		{
 			CurrentState = BattleState.Won;
 			GD.Print("Enemy defeated! You win!");
+			EmitSignal(SignalName.StateChanged);
 			return;
 		}
 
 		CurrentState = BattleState.EnemyTurn;
+		EmitSignal(SignalName.StateChanged);
 		EnemyTurn();
 	}
 
-	public void EnemyTurn()
+	public async void EnemyTurn()
 	{
 		GD.Print("=== Enemy Turn ===");
 
+		await ToSignal(GetTree().CreateTimer(1.0f), Timer.SignalName.Timeout);
 
 		int damage = Hero.TakeDamage(Enemy.Data.Attack);
 		GD.Print($"Enemy attack! {Hero.Data.CharacterName} takes {damage} damage!");
@@ -57,11 +63,13 @@ public partial class BattleManager : Node
 		{
 			CurrentState = BattleState.Lost;
 			GD.Print("Game Over");
+			EmitSignal(SignalName.StateChanged);
 			return;
 		}
 
 		CurrentState = BattleState.PlayerTurn;
 		GD.Print("== Waiting player input - Player Turn");
+		EmitSignal(SignalName.StateChanged);
 
 	}
 
@@ -74,6 +82,7 @@ public partial class BattleManager : Node
 		GD.Print($"{Hero.Data.CharacterName} HP: {Hero.CurrentHP} / {Hero.Data.MaxHP}");
 
 		CurrentState = BattleState.EnemyTurn;
+		EmitSignal(SignalName.StateChanged);
 		EnemyTurn();
 	}
 }

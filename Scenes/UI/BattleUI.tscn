@@ -1,65 +1,136 @@
 [gd_scene format=3 uid="uid://c3mnew5jgf0pw"]
 
 [ext_resource type="Script" uid="uid://dkeif48a8qlef" path="res://Scripts/UI/BattleUI.cs" id="1_o21vf"]
+[ext_resource type="Texture2D" uid="uid://bpbcn7tiem2i7" path="res://Assets/Sprites/DialogueBoxSimple.png" id="2_3f0ou"]
+[ext_resource type="Texture2D" uid="uid://b5gfyioai74l1" path="res://Assets/Sprites/battleback1.png" id="2_4sanu"]
+[ext_resource type="FontFile" uid="uid://cokpvig7oht42" path="res://Assets/Fonts/NormalFont.ttf" id="2_5s6ks"]
+[ext_resource type="Texture2D" uid="uid://bwdwsfdr55iax" path="res://Assets/Sprites/LifeBarMiniUnder.png" id="2_h4kvj"]
+[ext_resource type="Texture2D" uid="uid://blgqhr7tlqmsd" path="res://Assets/Sprites/LifeBarMiniProgress.png" id="3_a1iff"]
+[ext_resource type="Texture2D" uid="uid://bk006vsr2l476" path="res://Assets/Sprites/arrow_right.png" id="5_5s6ks"]
+[ext_resource type="Script" uid="uid://bs32iih8gnu20" path="res://Scripts/UI/MenuSelector.cs" id="5_a1iff"]
+[ext_resource type="FontFile" uid="uid://cokpvig7oht42" path="res://Assets/NormalFont.ttf" id="6_4sanu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1tb3b"]
+texture = ExtResource("2_3f0ou")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [node name="BattleUI" type="CanvasLayer" unique_id=971836381]
 script = ExtResource("1_o21vf")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=804527687]
+visible = false
+offset_top = -1.0
+offset_right = 320.0
+offset_bottom = 179.0
+texture = ExtResource("2_4sanu")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="HeroInfo" type="VBoxContainer" parent="." unique_id=1321818714]
 anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 22.0
-offset_top = -61.0
-offset_right = 422.0
-offset_bottom = -7.0
+offset_left = 19.0
+offset_top = -108.0
+offset_right = 64.0
+offset_bottom = -86.0
 grow_vertical = 0
+theme_override_constants/separation = -4
 
 [node name="HeroName" type="Label" parent="HeroInfo" unique_id=386826369]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_5s6ks")
+theme_override_font_sizes/font_size = 6
 
-[node name="HeroHP" type="ProgressBar" parent="HeroInfo" unique_id=1776557634]
+[node name="HBoxContainer" type="HBoxContainer" parent="HeroInfo" unique_id=1168963166]
 layout_mode = 2
 
+[node name="HeroHP" type="TextureProgressBar" parent="HeroInfo/HBoxContainer" unique_id=1395419368]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+texture_under = ExtResource("2_h4kvj")
+texture_progress = ExtResource("3_a1iff")
+
+[node name="HeroHPCount" type="Label" parent="HeroInfo/HBoxContainer" unique_id=124651145]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(7, 0)
+theme_override_fonts/font = ExtResource("2_5s6ks")
+theme_override_font_sizes/font_size = 5
+
 [node name="EnemyInfo" type="VBoxContainer" parent="." unique_id=472389707]
-anchors_preset = 3
+anchors_preset = -1
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -417.0
-offset_top = -54.0
+offset_left = -61.0
+offset_top = -108.0
+offset_right = -16.0
+offset_bottom = -84.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_constants/separation = -4
 
 [node name="EnemyName" type="Label" parent="EnemyInfo" unique_id=590282040]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("2_5s6ks")
+theme_override_font_sizes/font_size = 6
 
-[node name="EnemyHP" type="ProgressBar" parent="EnemyInfo" unique_id=1888443343]
+[node name="HBoxContainer" type="HBoxContainer" parent="EnemyInfo" unique_id=996780394]
 layout_mode = 2
+
+[node name="EnemyHP" type="TextureProgressBar" parent="EnemyInfo/HBoxContainer" unique_id=934028281]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+texture_under = ExtResource("2_h4kvj")
+texture_progress = ExtResource("3_a1iff")
+
+[node name="EnemyHPCount" type="Label" parent="EnemyInfo/HBoxContainer" unique_id=1180973878]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(7, 0)
+theme_override_fonts/font = ExtResource("2_5s6ks")
+theme_override_font_sizes/font_size = 5
 
 [node name="BattleLog" type="Label" parent="." unique_id=1459914029]
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.202
-anchor_right = 0.5
-anchor_bottom = 0.202
-offset_left = -20.0
-offset_top = 181.60399
-offset_right = 20.0
-offset_bottom = 204.60399
+anchor_left = 0.462
+anchor_top = 0.17400001
+anchor_right = 0.462
+anchor_bottom = 0.17400001
+offset_left = 0.16000366
+offset_top = -16.320002
+offset_right = 40.160004
+offset_bottom = 6.6799984
 grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
 [node name="ActionButtons" type="HBoxContainer" parent="." unique_id=1803696228]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -83.0
-offset_top = -72.0
-offset_right = 82.0
-offset_bottom = -18.0
+offset_left = -58.0
+offset_top = -168.0
+offset_right = 47.0
+offset_bottom = -137.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -70,3 +141,90 @@ text = "Attack"
 [node name="HealButton" type="Button" parent="ActionButtons" unique_id=297744655]
 layout_mode = 2
 text = "Heal"
+
+[node name="ActionMenu" type="PanelContainer" parent="." unique_id=1510194553]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -80.0
+offset_right = 149.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1tb3b")
+script = ExtResource("5_a1iff")
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenu" unique_id=1599858841]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionMenu/MarginContainer" unique_id=1924763748]
+layout_mode = 2
+theme_override_constants/separation = -2
+
+[node name="MenuItem1" type="HBoxContainer" parent="ActionMenu/MarginContainer/VBoxContainer" unique_id=1505613945]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem1" unique_id=969462946]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_5s6ks")
+
+[node name="Attack" type="Label" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem1" unique_id=18269382]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4sanu")
+theme_override_font_sizes/font_size = 8
+text = "Attack"
+
+[node name="MenuItem2" type="HBoxContainer" parent="ActionMenu/MarginContainer/VBoxContainer" unique_id=1684278114]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem2" unique_id=1166776824]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_5s6ks")
+
+[node name="Magic" type="Label" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem2" unique_id=62427811]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4sanu")
+theme_override_font_sizes/font_size = 8
+text = "Magic"
+
+[node name="MenuItem3" type="HBoxContainer" parent="ActionMenu/MarginContainer/VBoxContainer" unique_id=1471721228]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem3" unique_id=1522716905]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_5s6ks")
+
+[node name="Item" type="Label" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem3" unique_id=1431303297]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4sanu")
+theme_override_font_sizes/font_size = 8
+text = "Item"
+
+[node name="MenuItem4" type="HBoxContainer" parent="ActionMenu/MarginContainer/VBoxContainer" unique_id=174215627]
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem4" unique_id=191190584]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_5s6ks")
+
+[node name="Run" type="Label" parent="ActionMenu/MarginContainer/VBoxContainer/MenuItem4" unique_id=555044787]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_4sanu")
+theme_override_font_sizes/font_size = 8
+text = "Run"

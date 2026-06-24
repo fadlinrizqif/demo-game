@@ -6,33 +6,55 @@ public partial class BattleUI : CanvasLayer
 
 	//Hero UI
 	private Label _heroName;
-	private ProgressBar _heroHP;
+	private TextureProgressBar _heroHP;
+	private Label _heroHPCount;
 
 	//Enemy UI
 	private Label _enemyName;
-	private ProgressBar _enemyHP;
+	private TextureProgressBar _enemyHP;
+	private Label _enemyHPCount;
 
 	//Battle Log
 	private Label _battleLog;
 
 	// Action
+	private MenuSelector _actionMenu;
+
 	private Button _attackButton;
 	private Button _healButton;
 
 	public override void _Ready()
 	{
 		_heroName = GetNode<Label>("HeroInfo/HeroName");
-		_heroHP = GetNode<ProgressBar>("HeroInfo/HeroHP");
+		_heroHP = GetNode<TextureProgressBar>("HeroInfo/HBoxContainer/HeroHP");
+		_heroHPCount = GetNode<Label>("HeroInfo/HBoxContainer/HeroHPCount");
 		_enemyName = GetNode<Label>("EnemyInfo/EnemyName");
-		_enemyHP = GetNode<ProgressBar>("EnemyInfo/EnemyHP");
+		_enemyHP = GetNode<TextureProgressBar>("EnemyInfo/HBoxContainer/EnemyHP");
+		_enemyHPCount = GetNode<Label>("EnemyInfo/HBoxContainer/EnemyHPCount");
 		_battleLog = GetNode<Label>("BattleLog");
-		_attackButton = GetNode<Button>("ActionButtons/AttackButton");
-		_healButton = GetNode<Button>("ActionButtons/HealButton");
+		//_attackButton = GetNode<Button>("ActionButtons/AttackButton");
+		//_healButton = GetNode<Button>("ActionButtons/HealButton");
 
-		_attackButton.Pressed += OnAttackPressed;
-		_healButton.Pressed += OnHealPressed;
+		//_attackButton.Pressed += OnAttackPressed;
+		//_healButton.Pressed += OnHealPressed;
 
+		_actionMenu = GetNode<MenuSelector>("ActionMenu");
+		_actionMenu.ItemSelected += OnMenuItemSelected;
+
+		BattleManager.StateChanged += UpdateUI;
 		UpdateUI();
+	}
+
+	private void OnMenuItemSelected(int index)
+	{
+		switch (index)
+		{
+			case 0: BattleManager.PlayerAttack(); break;
+			case 1: BattleManager.PlayerHeal(); break;
+			case 2: /*BattleManager.PlayerAttack()*/; break;
+			case 3: /*BattleManager.PlayerAttack()*/; break;
+
+		}
 	}
 
 	private void OnAttackPressed()
@@ -56,28 +78,29 @@ public partial class BattleUI : CanvasLayer
 		_heroName.Text = hero.Data.CharacterName;
 		_heroHP.MaxValue = hero.Data.MaxHP;
 		_heroHP.Value = hero.CurrentHP;
+		_heroHPCount.Text = $"{hero.CurrentHP}/{hero.Data.MaxHP}";
 
 		//Update Ememy
 		_enemyName.Text = enemy.Data.CharacterName;
 		_enemyHP.MaxValue = enemy.Data.MaxHP;
 		_enemyHP.Value = enemy.CurrentHP;
+		_enemyHPCount.Text = $"{enemy.CurrentHP}/{enemy.Data.MaxHP}";
 
 		bool isPlayerTurn = BattleManager.CurrentState == BattleManager.BattleState.PlayerTurn;
-		_attackButton.Disabled = !isPlayerTurn;
-		_healButton.Disabled = !isPlayerTurn;
+
+
+		_actionMenu.SetEnabled(isPlayerTurn);
 
 
 		if (BattleManager.CurrentState == BattleManager.BattleState.Won)
 		{
 			_battleLog.Text = "You Win";
-			_attackButton.Disabled = true;
-			_healButton.Disabled = true;
+			_actionMenu.SetEnabled(false);
 		}
 		else if (BattleManager.CurrentState == BattleManager.BattleState.Lost)
 		{
 			_battleLog.Text = "You Lost";
-			_attackButton.Disabled = true;
-			_healButton.Disabled = true;
+			_actionMenu.SetEnabled(isPlayerTurn);
 		}
 
 
