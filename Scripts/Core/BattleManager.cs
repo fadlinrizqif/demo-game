@@ -21,15 +21,21 @@ public partial class BattleManager : Node
 
 	public override void _Ready()
 	{
-		CurrentState = BattleState.PlayerTurn;
 		GD.Print("=== Battle Start ===");
 		GD.Print($"{Hero.Data.CharacterName} HP: {Hero.CurrentHP} / {Hero.Data.MaxHP}");
 		GD.Print($"{Enemy.Data.CharacterName} HP: {Enemy.CurrentHP} / {Enemy.Data.MaxHP}");
 		GD.Print("== Waiting player input - Player Turn");
+
+		if (GameManager.Instance.PendingEnemyData != null)
+		{
+			Enemy.Data = GameManager.Instance.PendingEnemyData;
+		}
+		CurrentState = BattleState.PlayerTurn;
+
 		EmitSignal(SignalName.StateChanged);
 	}
 
-	public void PlayerAttack()
+	public async void PlayerAttack()
 	{
 		GD.Print("=== Player Turn ===");
 		int damage = Enemy.TakeDamage(Hero.Data.Attack);
@@ -41,6 +47,11 @@ public partial class BattleManager : Node
 			CurrentState = BattleState.Won;
 			GD.Print("Enemy defeated! You win!");
 			EmitSignal(SignalName.StateChanged);
+
+			GameManager.Instance.MarkDefeatedZone(GameManager.Instance.LastEncounterZone);
+
+			await ToSignal(GetTree().CreateTimer(2.0f), Timer.SignalName.Timeout);
+			GetTree().ChangeSceneToFile(GameManager.Instance.PreviosScene);
 			return;
 		}
 

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://cp8pgfmimaw7t"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_itxfx"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="2_nx8ko"]
+[ext_resource type="PackedScene" uid="uid://bquja8jyk8kbr" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Textbox/vn_textbox_layer.tscn" id="2_r47iw"]
+
+[sub_resource type="Resource" id="Resource_r47iw"]
+script = ExtResource("1_itxfx")
+overrides = {
+"global_font": "\"res://Assets/Fonts/NormalFont.ttf\""
+}
+
+[sub_resource type="Resource" id="Resource_qui4k"]
+script = ExtResource("1_itxfx")
+scene = ExtResource("2_r47iw")
+overrides = {
+"box_margin_bottom": "10.0",
+"box_size": "Vector2(300.5, 100)",
+"name_label_use_global_font": "false",
+"next_indicator_position_offset": "Vector2(-10, -25)",
+"next_indicator_size": "Vector2(10, 10)",
+"text_use_global_font": "false",
+"text_use_global_size": "false"
+}
+
+[resource]
+script = ExtResource("2_nx8ko")
+name = "RPG"
+layer_list = Array[String](["10"])
+layer_info = {
+"": SubResource("Resource_r47iw"),
+"10": SubResource("Resource_qui4k")
+}
+metadata/_latest_layer = "10"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://btabmi2apvm1b"]
+
+[ext_resource type="Texture2D" uid="uid://bpbcn7tiem2i7" path="res://Assets/Sprites/DialogueBoxSimple.png" id="1_jl1pc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nlpf"]
+atlas = ExtResource("1_jl1pc")
+
+[node name="Node2D" type="Node2D" unique_id=544554053]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1318710104]
+position = Vector2(160, 144)
+scale = Vector2(0.9272152, 0.9)
+texture = SubResource("AtlasTexture_2nlpf")

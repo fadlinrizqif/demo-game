@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dyshqrcg4ed80"]
+
+[ext_resource type="Texture2D" uid="uid://cv6gudaohppap" path="res://Assets/Sprites/TilesetHouse.png" id="1_obw3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nlpf"]
+atlas = ExtResource("1_obw3k")
+region = Rect2(65.270226, 4.881454, 59.236908, 43.88648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2nlpf"]
+size = Vector2(58, 41)
+
+[node name="House" type="StaticBody2D" unique_id=410697556]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=732979050]
+texture = SubResource("AtlasTexture_2nlpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651498721]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_2nlpf")
