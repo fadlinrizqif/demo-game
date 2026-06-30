@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://my45dmomqrx2"]
+
+[ext_resource type="Texture2D" uid="uid://cgsd3s2lmk2bl" path="res://Assets/Sprites/Characters/DemonCyclop/Sprite.png" id="1_egl2r"]
+[ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="1_x27tt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icmlm"]
+atlas = ExtResource("1_egl2r")
+region = Rect2(0, 0, 37, 33.61463)
+
+[resource]
+script = ExtResource("1_x27tt")
+CharacterName = "DemonCyclop"
+MaxHP = 200
+Attack = 20
+Sprite = SubResource("AtlasTexture_icmlm")
+metadata/_custom_type_script = "uid://7hjt3bfh8dih"

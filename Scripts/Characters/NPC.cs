@@ -3,6 +3,7 @@ using Godot;
 public partial class NPC : StaticBody2D
 {
 	[Export] public string TimelineName { get; set; } = "NpcVillager";
+	public HeroMovement heroMovement;
 
 	private Area2D _interactArea;
 	private Node dialog;
@@ -18,13 +19,16 @@ public partial class NPC : StaticBody2D
 
 		dialog = GetNode("/root/Dialogic");
 		dialog.Connect("timeline_ended", new Callable(this, nameof(OnDialogEnded)));
+
+		var heroNode = GetTree().GetFirstNodeInGroup("hero");
+		heroMovement = heroNode as HeroMovement;
 	}
 
 	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventKey keyEvent
 			&& keyEvent.Pressed
-			&& keyEvent.Keycode == Key.E
+			&& keyEvent.Keycode == Key.Space
 			&& _heroNearby
 			&& !_isDialogOpen)
 		{
@@ -53,12 +57,14 @@ public partial class NPC : StaticBody2D
 	private void StartDialog()
 	{
 		_isDialogOpen = true;
+		heroMovement.SetControlEnabled(false);
 		dialog.Call("start", TimelineName);
 	}
 
 	private void OnDialogEnded()
 	{
 		_isDialogOpen = false;
+		heroMovement.SetControlEnabled(true);
 	}
 
 

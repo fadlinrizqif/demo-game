@@ -55,8 +55,7 @@ public partial class BattleUI : CanvasLayer
 		{
 			case 0: BattleManager.PlayerAttack(); break;
 			case 1: BattleManager.PlayerHeal(); break;
-			case 2: /*BattleManager.PlayerAttack()*/; break;
-			case 3: /*BattleManager.PlayerAttack()*/; break;
+			case 2: BattleManager.PlayerRun(); break;
 
 		}
 	}

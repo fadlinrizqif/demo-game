@@ -29,6 +29,7 @@ public partial class BattleManager : Node
 		if (GameManager.Instance.PendingEnemyData != null)
 		{
 			Enemy.Data = GameManager.Instance.PendingEnemyData;
+			Enemy.InitializeStats();
 		}
 		CurrentState = BattleState.PlayerTurn;
 
@@ -51,6 +52,12 @@ public partial class BattleManager : Node
 			GameManager.Instance.MarkDefeatedZone(GameManager.Instance.LastEncounterZone);
 
 			await ToSignal(GetTree().CreateTimer(2.0f), Timer.SignalName.Timeout);
+			if (GameManager.Instance.IsBoss)
+			{
+				GetTree().ChangeSceneToFile("res://Scenes/Winning.tscn");
+				GameManager.Instance.ResetStateGame();
+				return;
+			}
 			GetTree().ChangeSceneToFile(GameManager.Instance.PreviosScene);
 			return;
 		}
@@ -75,6 +82,9 @@ public partial class BattleManager : Node
 			CurrentState = BattleState.Lost;
 			GD.Print("Game Over");
 			EmitSignal(SignalName.StateChanged);
+			await ToSignal(GetTree().CreateTimer(2.0f), Timer.SignalName.Timeout);
+			GetTree().ChangeSceneToFile("res://Scenes/GameOver.tscn");
+			GameManager.Instance.ResetStateGame();
 			return;
 		}
 
@@ -95,5 +105,14 @@ public partial class BattleManager : Node
 		CurrentState = BattleState.EnemyTurn;
 		EmitSignal(SignalName.StateChanged);
 		EnemyTurn();
+	}
+
+	public void PlayerRun()
+	{
+		if (CurrentState != BattleState.PlayerTurn) return;
+
+		GameManager.Instance.TempDisableZone(GameManager.Instance.LastEncounterZone, 3.0f);
+		GetTree().ChangeSceneToFile(GameManager.Instance.PreviosScene);
+		//
 	}
 }

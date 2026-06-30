@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bppicw45rb1tr"]
+
+[ext_resource type="Texture2D" uid="uid://b6ey75g0tq8ln" path="res://Assets/Sprites/TilesetVillageAbandoned.png" id="1_fbs48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxgb2"]
+atlas = ExtResource("1_fbs48")
+region = Rect2(0, -0.43673515, 176.3252, 49.006813)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xkv1"]
+size = Vector2(176, 49)
+
+[node name="DamagedHouses" type="StaticBody2D" unique_id=410697556]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=732979050]
+texture = SubResource("AtlasTexture_wxgb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651498721]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_4xkv1")

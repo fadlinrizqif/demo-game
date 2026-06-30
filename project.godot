@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Demo_TurnBasedGame"
-run/main_scene="uid://6ovxc5jyhbf3"
+run/main_scene="uid://c1ejhleedij0"
 config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -23,18 +23,21 @@ Dialogic="*uid://ds2q0uclmolvu"
 [dialogic]
 
 directories/dch_directory={
+"ChiefVillage": "res://dialogic/characters/ChiefVillage.dch",
 "John": "res://dialogic/characters/John.dch",
 "Villager": "res://dialogic/characters/Villager.dch"
 }
 directories/dtl_directory={
+"ChiefVillage": "res://dialogic/timelines/ChiefVillage.dtl",
 "NPC_John": "res://dialogic/timelines/NPC_John.dtl",
 "NpcVillager": "res://dialogic/timelines/NpcVillager.dtl"
 }
 layout/style_directory={
 "": "res://Scenes/Dialogic/RPG.tres",
-"RPG": "res://Scenes/Dialogic/RPG.tres"
+"RPG": "res://Scenes/Dialogic/RPG.tres",
+"RPGStyle2": "res://dialogic/RPGStyle2.tres"
 }
-layout/style_list=["res://Scenes/Dialogic/RPG.tres"]
+layout/style_list=["res://Scenes/Dialogic/RPG.tres", "res://dialogic/RPGStyle2.tres"]
 layout/default_style="res://Scenes/Dialogic/RPG.tres"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

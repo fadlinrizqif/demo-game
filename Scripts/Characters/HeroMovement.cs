@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class HeroMovement : CharacterBody2D
 {
@@ -10,14 +9,27 @@ public partial class HeroMovement : CharacterBody2D
 	private int _stepCount;
 	private Vector2 _lastPosition;
 
+	private bool _controlEnabled = true;
+
 	public override void _Ready()
 	{
 		_sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		_lastPosition = Position;
 	}
 
+	public void SetControlEnabled(bool enable)
+	{
+		_controlEnabled = enable;
+		if (!enable)
+		{
+			Velocity = Vector2.Zero;
+		}
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!_controlEnabled) return;
+
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 
 		if (direction != Vector2.Zero)
@@ -32,7 +44,7 @@ public partial class HeroMovement : CharacterBody2D
 		}
 
 		MoveAndSlide();
-		CountStep();
+		//CountStep();
 	}
 
 	private void UpdateAnimation(Vector2 direction)

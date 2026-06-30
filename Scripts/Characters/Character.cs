@@ -28,6 +28,12 @@ public partial class Character : Node
 
 	}
 
+	public void InitializeStats()
+	{
+		CurrentHP = Data.MaxHP;
+		CurrentMP = Data.MaxMP;
+	}
+
 	public int TakeDamage(int incomingAttack)
 	{
 		int damage = Mathf.Max(1, incomingAttack - Data.Defense);

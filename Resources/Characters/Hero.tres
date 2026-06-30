@@ -10,6 +10,8 @@ region = Rect2(2.0205555, 1.9973717, 12.092859, 14.258413)
 [resource]
 script = ExtResource("1_2eys5")
 CharacterName = "Hero"
+MaxMP = 20
+Attack = 20
 Defense = 8
 Sprite = SubResource("AtlasTexture_prfjc")
 metadata/_custom_type_script = "uid://7hjt3bfh8dih"

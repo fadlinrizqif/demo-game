@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://bxom6nmf0cxxd"]
+
+[ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="1_23dkm"]
+[ext_resource type="Texture2D" uid="uid://h4osjgpven0i" path="res://Assets/Sprites/Characters/Snake/Snake.png" id="1_u2imr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2imr"]
+atlas = ExtResource("1_u2imr")
+region = Rect2(0.7394924, 0.9542208, 13.244144, 14.848426)
+
+[resource]
+script = ExtResource("1_23dkm")
+CharacterName = "Snake"
+MaxHP = 30
+MaxMP = 0
+Attack = 6
+Defense = 0
+Speed = 7
+Sprite = SubResource("AtlasTexture_u2imr")
+metadata/_custom_type_script = "uid://7hjt3bfh8dih"

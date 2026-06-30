@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://cji6jxx3yyem5"]
+
+[ext_resource type="Texture2D" uid="uid://hpmb7a34mqyc" path="res://Assets/Sprites/Characters/Skull/SpriteSheet.png" id="1_fxyx1"]
+[ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="1_ubbvp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxyx1"]
+atlas = ExtResource("1_fxyx1")
+region = Rect2(0.9557648, 0.8830719, 14.15098, 14.247122)
+
+[resource]
+script = ExtResource("1_ubbvp")
+CharacterName = "Skull"
+MaxHP = 70
+MaxMP = 0
+Attack = 7
+Defense = 4
+Speed = 8
+Sprite = SubResource("AtlasTexture_fxyx1")
+metadata/_custom_type_script = "uid://7hjt3bfh8dih"

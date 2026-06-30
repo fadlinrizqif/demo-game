@@ -10,7 +10,14 @@ public partial class WorldScene : Node2D
 	{
 		Hero = GetNode<CharacterBody2D>("Hero");
 
-		if (GameManager.Instance.HeroPosition != Vector2.Zero)
+		if (GameManager.Instance.PreviosScene == "res://Scenes/GameOver.tscn"
+			|| GameManager.Instance.PreviosScene == "res://Scenes/Winning.tscn")
+		{
+
+			Hero.Position = Vector2.Zero;
+
+		}
+		else if (GameManager.Instance.HeroPosition != Vector2.Zero)
 		{
 			Hero.Position = GameManager.Instance.HeroPosition;
 		}

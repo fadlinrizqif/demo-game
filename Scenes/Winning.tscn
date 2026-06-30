@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://pyhef0m7myb4"]
+
+[ext_resource type="Script" uid="uid://cuaqrgjds6qhu" path="res://Scripts/UI/Winning.cs" id="1_njikj"]
+[ext_resource type="Texture2D" uid="uid://b5gfyioai74l1" path="res://Assets/Sprites/battleback1.png" id="1_obrwa"]
+[ext_resource type="FontFile" uid="uid://cokpvig7oht42" path="res://Assets/Fonts/NormalFont.ttf" id="2_njikj"]
+[ext_resource type="Texture2D" uid="uid://cy2hnqd3ed4bp" path="res://Assets/Sprites/ChoiceBox.png" id="3_qc2ep"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nlpf"]
+atlas = ExtResource("3_qc2ep")
+
+[node name="Winning" type="Control" unique_id=1170253748]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 321.0
+offset_bottom = 181.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_njikj")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1264128474]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("1_obrwa")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="." unique_id=1081046282]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 30.0
+offset_right = 260.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("2_njikj")
+text = "Thank   You   for   Playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=872960498]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 102.0
+offset_right = 222.0
+offset_bottom = 146.0
+
+[node name="Start" type="TextureButton" parent="VBoxContainer" unique_id=883218943]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_2nlpf")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Start" unique_id=1462834367]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 2.0
+offset_right = 79.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.18000486, 0.18000486, 0.18000486, 1)
+theme_override_fonts/font = ExtResource("2_njikj")
+theme_override_font_sizes/font_size = 9
+text = "Retry"
+
+[node name="Quit" type="TextureButton" parent="VBoxContainer" unique_id=1271337800]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_2nlpf")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/Quit" unique_id=727265141]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 2.0
+offset_right = 79.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.18000486, 0.18000486, 0.18000486, 1)
+theme_override_fonts/font = ExtResource("2_njikj")
+theme_override_font_sizes/font_size = 9
+text = "Quit
+"

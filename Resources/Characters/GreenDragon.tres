@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://cp4q8yay88j4s"]
+
+[ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="1_446xg"]
+[ext_resource type="Texture2D" uid="uid://bmyq2mdda20fh" path="res://Assets/Sprites/Characters/DragonGreen/Preview.png" id="1_icmlm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icmlm"]
+atlas = ExtResource("1_icmlm")
+region = Rect2(116.26015, 28.38005, 233.53014, 239.58015)
+
+[resource]
+script = ExtResource("1_446xg")
+CharacterName = "Green Dragon"
+MaxHP = 200
+MaxMP = 0
+Attack = 20
+Sprite = SubResource("AtlasTexture_icmlm")
+metadata/_custom_type_script = "uid://7hjt3bfh8dih"

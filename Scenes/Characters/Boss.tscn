@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://beq5i6i80dhhv"]
+
+[ext_resource type="Texture2D" uid="uid://bmyq2mdda20fh" path="res://Assets/Sprites/Characters/DragonGreen/Preview.png" id="1_32l1v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nlpf"]
+atlas = ExtResource("1_32l1v")
+region = Rect2(104, 25.875671, 243.94754, 244.90424)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnw4k"]
+size = Vector2(106, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j13h1"]
+size = Vector2(130, 135.5)
+
+[node name="Boss" type="StaticBody2D" unique_id=1095615844]
+position = Vector2(4, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=567958254]
+position = Vector2(-4.0000076, 4)
+scale = Vector2(0.4341564, 0.46311477)
+texture = SubResource("AtlasTexture_2nlpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113231809]
+position = Vector2(-4, 4)
+shape = SubResource("RectangleShape2D_xnw4k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1172902640]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=905492516]
+position = Vector2(-4, 4)
+shape = SubResource("RectangleShape2D_j13h1")
