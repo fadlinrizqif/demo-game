@@ -19,10 +19,11 @@ expand_mode = 3
 [node name="HeroPosition" type="Node2D" parent="TextureRect" unique_id=1960281306]
 
 [node name="CharacterBody" parent="TextureRect/HeroPosition" unique_id=1398552183 instance=ExtResource("1_k6flv")]
-position = Vector2(39, 57)
+position = Vector2(31, 54)
 scale = Vector2(2, 2)
 
 [node name="EnemyPosition" type="Node2D" parent="TextureRect" unique_id=104668547]
+visible = false
 
 [node name="CharacterBody" parent="TextureRect/EnemyPosition" unique_id=2125619735 instance=ExtResource("2_nutpp")]
 position = Vector2(279, 62)

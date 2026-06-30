@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://clprw5eaupee4"]
+
+[ext_resource type="Script" uid="uid://dnwmd7wcb3qfc" path="res://Scripts/Characters/NPC.cs" id="1_evqbk"]
+[ext_resource type="Texture2D" uid="uid://bi7ycxvyd1hbd" path="res://Assets/Sprites/Characters/OldMan/SpriteSheet.png" id="2_edpor"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nlpf"]
+atlas = ExtResource("2_edpor")
+region = Rect2(1.8099442, 2.7565298, 12.154175, 13.513061)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnw4k"]
+size = Vector2(14, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j13h1"]
+size = Vector2(26, 26)
+
+[node name="NPCs" type="StaticBody2D" unique_id=1095615844]
+script = ExtResource("1_evqbk")
+TimelineName = "NPC_John"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=567958254]
+texture = SubResource("AtlasTexture_2nlpf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=113231809]
+shape = SubResource("RectangleShape2D_xnw4k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1172902640]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=905492516]
+shape = SubResource("RectangleShape2D_j13h1")

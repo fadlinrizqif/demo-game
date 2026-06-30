@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://b77eol6xklydt"]
+
+[ext_resource type="Texture2D" uid="uid://b5ojv0pi2gfpc" path="res://Assets/Sprites/Characters/Slime.png" id="1_kihua"]
+[ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="2_wppjm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0veso"]
+atlas = ExtResource("1_kihua")
+region = Rect2(1.144558, 7.032869, 13.817429, 7.9051385)
+
+[resource]
+script = ExtResource("2_wppjm")
+CharacterName = "Slime"
+MaxHP = 50
+MaxMP = 0
+Defense = 3
+Speed = 8
+Sprite = SubResource("AtlasTexture_0veso")
+metadata/_custom_type_script = "uid://7hjt3bfh8dih"

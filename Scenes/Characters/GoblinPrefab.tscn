@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://otawaev41ojh"]
 
 [ext_resource type="Script" uid="uid://brf8lodajk4hy" path="res://Scripts/Characters/Character.cs" id="1_ewgx6"]
-[ext_resource type="Resource" uid="uid://b77eol6xklydt" path="res://Resources/Characters/Goblin.tres" id="2_f8vts"]
+[ext_resource type="Resource" uid="uid://b77eol6xklydt" path="res://Resources/Characters/Slime.tres" id="2_f8vts"]
 [ext_resource type="Texture2D" uid="uid://b5ojv0pi2gfpc" path="res://Assets/Sprites/Characters/Slime.png" id="3_f8vts"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ey8u6"]

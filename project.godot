@@ -17,15 +17,17 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Dialogic="*uid://ds2q0uclmolvu"
 GameManager="*uid://ca7yo8sxwyejb"
+Dialogic="*uid://ds2q0uclmolvu"
 
 [dialogic]
 
 directories/dch_directory={
+"John": "res://dialogic/characters/John.dch",
 "Villager": "res://dialogic/characters/Villager.dch"
 }
 directories/dtl_directory={
+"NPC_John": "res://dialogic/timelines/NPC_John.dtl",
 "NpcVillager": "res://dialogic/timelines/NpcVillager.dtl"
 }
 layout/style_directory={

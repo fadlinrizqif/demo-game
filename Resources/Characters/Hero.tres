@@ -1,9 +1,15 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://cf2uhlolsduu6"]
 
 [ext_resource type="Script" uid="uid://7hjt3bfh8dih" path="res://Resources/Characters/CharacterData.cs" id="1_2eys5"]
+[ext_resource type="Texture2D" uid="uid://dltqhnv06cenw" path="res://Assets/Sprites/Characters/Walk.png" id="1_4mm5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prfjc"]
+atlas = ExtResource("1_4mm5q")
+region = Rect2(2.0205555, 1.9973717, 12.092859, 14.258413)
 
 [resource]
 script = ExtResource("1_2eys5")
 CharacterName = "Hero"
 Defense = 8
+Sprite = SubResource("AtlasTexture_prfjc")
 metadata/_custom_type_script = "uid://7hjt3bfh8dih"

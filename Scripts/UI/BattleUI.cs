@@ -5,11 +5,13 @@ public partial class BattleUI : CanvasLayer
 	[Export] public BattleManager BattleManager { get; set; }
 
 	//Hero UI
+	private Sprite2D _heroImage;
 	private Label _heroName;
 	private TextureProgressBar _heroHP;
 	private Label _heroHPCount;
 
 	//Enemy UI
+	private Sprite2D _enemyImage;
 	private Label _enemyName;
 	private TextureProgressBar _enemyHP;
 	private Label _enemyHPCount;
@@ -25,9 +27,11 @@ public partial class BattleUI : CanvasLayer
 
 	public override void _Ready()
 	{
+		_heroImage = GetNode<Sprite2D>("Hero/Sprite2D");
 		_heroName = GetNode<Label>("HeroInfo/HeroName");
 		_heroHP = GetNode<TextureProgressBar>("HeroInfo/HBoxContainer/HeroHP");
 		_heroHPCount = GetNode<Label>("HeroInfo/HBoxContainer/HeroHPCount");
+		_enemyImage = GetNode<Sprite2D>("Enemy/Sprite2D");
 		_enemyName = GetNode<Label>("EnemyInfo/EnemyName");
 		_enemyHP = GetNode<TextureProgressBar>("EnemyInfo/HBoxContainer/EnemyHP");
 		_enemyHPCount = GetNode<Label>("EnemyInfo/HBoxContainer/EnemyHPCount");
@@ -81,6 +85,7 @@ public partial class BattleUI : CanvasLayer
 		_heroHPCount.Text = $"{hero.CurrentHP}/{hero.Data.MaxHP}";
 
 		//Update Ememy
+		_enemyImage.Texture = enemy.Data.Sprite;
 		_enemyName.Text = enemy.Data.CharacterName;
 		_enemyHP.MaxValue = enemy.Data.MaxHP;
 		_enemyHP.Value = enemy.CurrentHP;

@@ -15,4 +15,15 @@ public partial class WorldScene : Node2D
 			Hero.Position = GameManager.Instance.HeroPosition;
 		}
 	}
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event is InputEventKey keyEvent && keyEvent.Pressed && keyEvent.Keycode == Key.Escape)
+		{
+
+			GameManager.Instance.HeroPosition = Hero.Position;
+			GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
+
+		}
+	}
 }
